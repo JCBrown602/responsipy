@@ -26,11 +26,11 @@ def getInput():
     print("Enter something: ", end = '')
     input1 = input()
     checkInput(input1)
-    print("### getInput().input1 = ", input1)
     return input1
 
-def getRespo():
-    pass
+def getResponse(input1):
+    response = requests.head(input1)
+    return response
 
 def showMsg(strError):
     print("*** ", strError, ": Must enter a URL starting with http:// or https:// ***")
@@ -38,29 +38,28 @@ def showMsg(strError):
 # Error handling
 def checkInput(input1):
     # 'is not None' doesn't catch an empty/blank string
-    print("### checkInput().input1 BEFORE the try = ", input1)
     if input1:
         # if user entered url, treat it as a single "url"
         try:
-            #response = requests.get(input1)
             response = requests.head(input1)
+            print("URL: ", response.url)
+            showResponse(response)
         except requests.exceptions.MissingSchema:
             strError = 'MissingSchema'
             showMsg(strError)
             getInput()
         except:
-            showMsg()
+            strError = 'Bad'
+            showMsg(strError)
             getInput()
     else:
         print("*** Something happened, but it was wonky. Try again. ***")
         getInput()
     #print("CHECKED input was: ", input1)
-    print("### checkInput().input1 = ", input1)
     return response
 
 # Loop through url.txt/url and print Content-Type
-def responseLoop():
-    getInput()
+def showResponse(response):
     print("-")
     print("URL: ", response.url)
     print("SERVER: ", response.headers['server'])
@@ -69,7 +68,7 @@ def responseLoop():
     print("-")
 
 # Start the loop
-responseLoop()
+getInput()
 
 # IF logic
     # if user entered file, treat it as a "url.txt"
