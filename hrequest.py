@@ -33,7 +33,7 @@ def getResponse(input1):
     return response
 
 def showMsg(strError):
-    print("*** ", strError, ": Must enter a URL starting with http:// or https:// ***")
+    print("*** ", strError, ": Must enter a full URL starting with http:// or https:// ***")
 
 # Error handling
 def checkInput(input1):
@@ -41,8 +41,10 @@ def checkInput(input1):
     if input1:
         # if user entered url, treat it as a single "url"
         try:
-            response = requests.head(input1)
+            #response = requests.head(input1)
+            response = getResponse(input1)
             print("URL: ", response.url)
+            print("TRY: Response is currently: ", response)
             showResponse(response)
         except requests.exceptions.MissingSchema:
             strError = 'MissingSchema'
@@ -55,7 +57,8 @@ def checkInput(input1):
     else:
         print("*** Something happened, but it was wonky. Try again. ***")
         getInput()
-    #print("CHECKED input was: ", input1)
+    print("CHECKED input was: ", input1)
+    print("RETURN: Response is currently: ", response)
     return response
 
 # Loop through url.txt/url and print Content-Type
