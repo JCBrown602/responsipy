@@ -7,3 +7,5 @@ This is gonna be more of a 'todo list' than a readme.
   * Read the lines/URLs from the file and run the getResponse() fx
 * Check for port numbers
 * GUI? Eventually...
+
+- Big issue with local var response
