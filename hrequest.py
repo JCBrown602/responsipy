@@ -20,15 +20,18 @@ import requests
 url = 'https://example.com'
 response = requests.get(url)
 strError = 'UNDEFINED'
+input1 = 'Nothing'
 
 # User input for url file name OR url
 def getInput():
+    global input1
     print("Enter something: ", end = '')
     input1 = input()
     checkInput(input1)
     return input1
 
 def getResponse(input1):
+    global response
     response = requests.head(input1)
     return response
 
@@ -37,6 +40,8 @@ def showMsg(strError):
 
 # Error handling
 def checkInput(input1):
+    global response
+    
     # 'is not None' doesn't catch an empty/blank string
     if input1:
         # if user entered url, treat it as a single "url"
