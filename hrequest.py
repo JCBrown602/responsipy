@@ -21,6 +21,7 @@ url = 'https://example.com'
 response = requests.get(url)
 strError = 'UNDEFINED'
 input1 = 'Nothing'
+filepath = 'list.txt'
 
 # User input for url file name OR url
 def getInput():
@@ -42,14 +43,14 @@ def showMsg(strError):
 def checkInput(input1):
     global response
     
+    # Get file contents if input matches file, else do a single lookup
+    if (input1 == 'list.txt'):
+        getFile(input1)
     # 'is not None' doesn't catch an empty/blank string
-    if input1:
+    elif input1:
         # if user entered url, treat it as a single "url"
         try:
-            #response = requests.head(input1)
             response = getResponse(input1)
-            #print("URL: ", response.url)
-            #print("TRY: Response is currently: ", response)
             showResponse(response)
         except requests.exceptions.MissingSchema:
             strError = 'MissingSchema'
@@ -62,8 +63,6 @@ def checkInput(input1):
     else:
         print("*** Something happened, but it was wonky. Try again. ***")
         getInput()
-    #print("CHECKED input was: ", input1)
-    #print("RETURN: Response is currently: ", response)
     return response
 
 # Loop through url.txt/url and print Content-Type
@@ -78,6 +77,14 @@ def showResponse(response):
 # IF logic
     # if user entered file, treat it as a "url.txt"
     # Open and read url.txt to var
+def getFile(input1):
+    with open(filepath) as fp:
+        line = fp.readline()
+        count = 1
+        while line:
+            print("URL {}: {}".format(count, line.strip()))
+            line = fp.readline()
+            count += 1
 
 # Start the loop
 getInput()
