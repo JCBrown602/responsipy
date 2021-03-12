@@ -48,8 +48,8 @@ def checkInput(input1):
         try:
             #response = requests.head(input1)
             response = getResponse(input1)
-            print("URL: ", response.url)
-            print("TRY: Response is currently: ", response)
+            #print("URL: ", response.url)
+            #print("TRY: Response is currently: ", response)
             showResponse(response)
         except requests.exceptions.MissingSchema:
             strError = 'MissingSchema'
@@ -62,8 +62,8 @@ def checkInput(input1):
     else:
         print("*** Something happened, but it was wonky. Try again. ***")
         getInput()
-    print("CHECKED input was: ", input1)
-    print("RETURN: Response is currently: ", response)
+    #print("CHECKED input was: ", input1)
+    #print("RETURN: Response is currently: ", response)
     return response
 
 # Loop through url.txt/url and print Content-Type
@@ -75,9 +75,9 @@ def showResponse(response):
     print("CONTENT-TYPE: ", response.headers['content-type'])
     print("-")
 
-# Start the loop
-getInput()
-
 # IF logic
     # if user entered file, treat it as a "url.txt"
     # Open and read url.txt to var
+
+# Start the loop
+getInput()
