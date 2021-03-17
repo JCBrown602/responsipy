@@ -5,11 +5,11 @@ Command line (*nix) tool that asks for URL and gets HEADERS
 for that URL.
 
 # Branching Strategy
-v1.0.0  - Single URL, user input
-v1.1.0  - Import URLs from TXT file and return responses, content-types
-develop - Ready for testing
-f.<name>- Feature
-master  - Release (tested version)
+- v1.0.0  - Single URL, user input
+- v1.1.0  - Import URLs from TXT file and return responses, content-types
+- develop - Ready for testing
+- f.<name>- Feature
+- master  - Release (tested version)
 
 # To Do / Ideas
 * Add file handling
