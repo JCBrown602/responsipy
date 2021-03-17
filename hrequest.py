@@ -3,6 +3,11 @@ Response Tool
 https://github.com/JCBrown602/responsipy
 Command line (*nix) tool that asks for URL and gets HEADERS
 for that URL.
+v1.0.0  - Single URL, user input
+v1.1.0  - Import URLs from TXT file and return responses, content-types
+develop - Ready for testing
+f.<name>- Feature
+master  - Release (tested version)
 
 TODO:
  - Isolate Content-Type
