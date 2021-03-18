@@ -7,7 +7,7 @@ for that URL.
 # Branching Strategy
 - v1.0.0  - Single URL, user input
 - v1.1.0  - Import URLs from TXT file and return responses, content-types
-- develop - Ready for testing
+- *develop - (default)Ready for testing
 - f.<name>- Feature
 - master  - Release (tested version)
 
@@ -21,3 +21,7 @@ for that URL.
 - Big issue with local var response
   - Issue was global v. local vars in Python - ambiguity
   https://www.geeksforgeeks.org/global-local-variables-python/
+
+NOTE: Making pretty much trash commits while I'm testing new things I'm
+learning about Git commands and branching concepts.
+
