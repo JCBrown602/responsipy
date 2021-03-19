@@ -31,7 +31,9 @@ filepath = 'list.txt'
 # User input for url file name OR url
 def getInput():
     global input1
+    print("=====================================")
     print("Enter something: ", end = '')
+    print("=====================================")
     input1 = input()
     checkInput(input1)
     return input1
