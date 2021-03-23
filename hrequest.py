@@ -31,6 +31,7 @@ filepath = 'list.txt'
 # User input for url file name OR url
 def getInput():
     global input1
+    print("================================")
     print("Enter something: ", end = '')
     input1 = input()
     checkInput(input1)
@@ -68,6 +69,7 @@ def checkInput(input1):
     else:
         print("*** Something happened, but it was wonky. Try again. ***")
         getInput()
+    print("================================")
     return response
 
 # Loop through url.txt/url and print Content-Type
@@ -88,6 +90,8 @@ def getFile(input1):
         count = 1
         while line:
             print("URL {}: {}".format(count, line.strip()))
+            #print(line.strip())
+            checkInput(line.strip())
             line = fp.readline()
             count += 1
 
